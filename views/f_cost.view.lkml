@@ -129,6 +129,26 @@ view: f_cost {
     sql: ${TABLE}."yyyymmdd_id" ;;
   }
 
+  measure: Qty {
+    type: sum
+    sql: ${qty} ;;
+    value_format:"$#,###.00;($#,###.0)"
+  }
+
+  measure: Qty720 {
+    type: sum
+    sql: ${qty_desc} ;;
+    value_format:"$#,###.00;($#,###.0)"
+  }
+
+  measure: Cost {
+    type: sum
+    sql: ${cost} ;;
+    value_format:"$#,###.00;($#,###.0)"
+  }
+
+
+
   measure: count {
     type: count
     drill_fields: []
