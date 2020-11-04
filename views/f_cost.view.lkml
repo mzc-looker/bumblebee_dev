@@ -46,7 +46,7 @@ view: f_cost {
       quarter,
       year
     ]
-    sql: ${TABLE}."yyyymmdd" ;;
+    sql: ${TABLE}."yyyymmdd_dt" ;;
   }
 
   dimension: instance_type_desc {
