@@ -36,17 +36,18 @@ view: f_cost {
     sql: ${TABLE}."etc2" ;;
   }
 
-  dimension_group: date {
+  dimension_group: insertdt {
     type: time
     timeframes: [
       raw,
+      time,
       date,
       week,
       month,
       quarter,
       year
     ]
-    sql: ${TABLE}."yyyymmdd_dt" ;;
+    sql: ${TABLE}."insertdt" ;;
   }
 
   dimension: instance_type_desc {
@@ -124,6 +125,21 @@ view: f_cost {
     sql: ${TABLE}."yyyymmdd" ;;
   }
 
+  dimension_group: yyyymmdd_dt {
+    type: time
+    timeframes: [
+      raw,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    convert_tz: no
+    datatype: date
+    sql: ${TABLE}."yyyymmdd_dt" ;;
+  }
+
   dimension: yyyymmdd_id {
     type: number
     sql: ${TABLE}."yyyymmdd_id" ;;
@@ -146,8 +162,6 @@ view: f_cost {
     sql: ${cost} ;;
     value_format:"$#,###.00;($#,###.0)"
   }
-
-
 
   measure: count {
     type: count
